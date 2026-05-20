@@ -108,7 +108,7 @@
 
     <section class="project earlier">
       <div class="project-meta">
-        <span class="mono">2023 — 2024</span>
+        <span class="mono">2023 — 2025</span>
         <span class="meta">Freelance · Various</span>
       </div>
       <div class="project-body">
