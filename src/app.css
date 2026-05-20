@@ -1,0 +1,200 @@
+:root {
+  color-scheme: light dark;
+
+  --color-bg: #faf8f3;
+  --color-bg-subtle: #f3f0e8;
+  --color-ink: #1c1c1a;
+  --color-ink-soft: #3d3d39;
+  --color-muted: #6e6c63;
+  --color-rule: #d6d2c4;
+  --color-accent: #3f6e10;
+  --color-accent-soft: #84cc16;
+
+  --font-serif: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+  --measure: 38rem;
+  --measure-wide: 52rem;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #15140f;
+    --color-bg-subtle: #1d1b15;
+    --color-ink: #ebe6d6;
+    --color-ink-soft: #cac4b3;
+    --color-muted: #8c887d;
+    --color-rule: #2c2a23;
+    --color-accent: #a3e635;
+    --color-accent-soft: #bef264;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 17px;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.6;
+  font-feature-settings: 'kern', 'liga', 'onum';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-ink);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: 2.5rem; font-weight: 500; }
+h2 { font-size: 1.75rem; margin-top: var(--space-7); margin-bottom: var(--space-4); }
+h3 { font-size: 1.25rem; margin-top: var(--space-6); margin-bottom: var(--space-3); }
+h4 { font-size: 1.05rem; font-weight: 600; margin-bottom: var(--space-2); }
+
+p {
+  margin: 0 0 var(--space-4) 0;
+  color: var(--color-ink-soft);
+}
+
+p.lead {
+  font-size: 1.2rem;
+  color: var(--color-ink);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent-soft);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s ease, color 0.15s ease;
+}
+
+a:hover {
+  color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
+}
+
+a.plain {
+  text-decoration: none;
+  color: inherit;
+}
+
+a.plain:hover {
+  color: var(--color-accent);
+}
+
+strong, b {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+em, i {
+  font-style: italic;
+}
+
+ul, ol {
+  margin: 0 0 var(--space-4) 0;
+  padding-left: 1.25rem;
+  color: var(--color-ink-soft);
+}
+
+li {
+  margin-bottom: var(--space-2);
+}
+
+code, kbd, samp, pre {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+code {
+  background: var(--color-bg-subtle);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+  color: var(--color-ink);
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: var(--color-rule);
+  margin: var(--space-7) 0;
+}
+
+blockquote {
+  margin: var(--space-5) 0;
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--color-accent-soft);
+  font-style: italic;
+  color: var(--color-ink-soft);
+}
+
+.container {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+
+.container-wide {
+  max-width: var(--measure-wide);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+
+.meta {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  letter-spacing: 0.01em;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  margin-bottom: var(--space-3);
+}
+
+@media (max-width: 600px) {
+  html { font-size: 16px; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  .container, .container-wide { padding: 0 var(--space-4); }
+}
