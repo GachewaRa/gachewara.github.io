@@ -1,0 +1,162 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,top=0.55in,bottom=0.55in,left=0.65in,right=0.65in]{geometry}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{parskip}
+
+% --- Fonts ---
+\setmainfont[
+  Path = /home/gachewa/.fonts-link/Poppins/,
+  Extension = .ttf,
+  UprightFont = Poppins_Regular,
+  BoldFont = Poppins_Bold,
+  ItalicFont = Poppins_SemiBold_Italic,
+  BoldItalicFont = Poppins_Black_Italic,
+]{Poppins}
+
+\newfontfamily\poppinssemibold[
+  Path = /home/gachewa/.fonts-link/Poppins/,
+  Extension = .ttf,
+  UprightFont = Poppins_SemiBold,
+  ItalicFont = Poppins_SemiBold_Italic,
+]{PoppinsSemiBold}
+
+% --- Colors ---
+\definecolor{accent}{HTML}{95052A}
+\definecolor{ink}{HTML}{1c1c1a}
+\definecolor{inksoft}{HTML}{3d3d39}
+\definecolor{muted}{HTML}{6e6c63}
+
+\color{ink}
+
+% --- Hyperref ---
+\hypersetup{
+  colorlinks=true,
+  urlcolor=accent,
+  linkcolor=accent,
+  pdftitle={Adrian Gachewa — Resume},
+  pdfauthor={Adrian Gachewa},
+}
+
+% --- Section styling ---
+\titleformat{\section}
+  {\normalfont\fontsize{9pt}{11pt}\bfseries\color{muted}}
+  {}{0em}
+  {\MakeUppercase}
+  [{\vspace{2pt}\color{muted}\titlerule[0.4pt]\vspace{4pt}}]
+\titlespacing*{\section}{0pt}{12pt}{2pt}
+
+% --- List styling ---
+\setlist[itemize]{
+  leftmargin=1.1em,
+  itemsep=2pt,
+  topsep=2pt,
+  parsep=0pt,
+  label=\textcolor{accent}{\textbullet}
+}
+
+% --- Custom commands ---
+\newcommand{\role}[2]{%
+  \noindent{\poppinssemibold\fontsize{11pt}{13pt}\selectfont #1}\hfill{\small\color{muted} #2}\par
+}
+
+\newcommand{\rolecontext}[1]{%
+  \noindent{\small\color{muted}\itshape #1}\par\vspace{2pt}
+}
+
+\setlength{\parindent}{0pt}
+\linespread{1.15}
+
+\begin{document}
+
+% --- Header ---
+\begin{center}
+  {\fontsize{24pt}{28pt}\selectfont\bfseries Adrian Gachewa}\\[3pt]
+  {\fontsize{10pt}{12pt}\selectfont\color{muted}Full-Stack Engineer \, · \, Python \, · \, AWS \, · \, Backend systems}\\[8pt]
+  {\fontsize{9.5pt}{12pt}\selectfont
+    Nairobi, Kenya \, · \, \href{mailto:gachewaadrian@gmail.com}{gachewaadrian@gmail.com} \, · \, +254 717 990 230\\
+    \href{https://github.com/GachewaRa}{github.com/GachewaRa} \, · \, \href{https://gachewara.github.io}{gachewara.github.io}
+  }
+\end{center}
+
+\vspace{4pt}
+
+% --- Summary ---
+\noindent Backend-leaning full-stack engineer, 3 years building production Python systems on AWS infrastructure. Currently leading development at M-taka, owning backend architecture and contributing to all major technical decisions across the stack. Strong on Python (FastAPI, Django), REST API design, Postgres, and containerized AWS deployments. Architecture-school background plus dedicated study of distributed-system design --- microservices decomposition, orchestration patterns, data-flow trade-offs --- inform how I approach architectural decisions.
+
+% --- Experience ---
+\section{Experience}
+
+\role{Lead Developer --- M-taka}{Jul 2025 -- Present}
+\rolecontext{Early-stage Kenyan startup. Software for the waste-management sector.}
+
+\begin{itemize}
+  \item Led the architectural redesign and 3-month rebuild of the company's core platform. Made the call to rebuild rather than patch, owned the architecture end to end, and shipped without service interruption. Contributed to all major technical decisions in close collaboration with the CTO.
+  \item Built backend services in Python (Django) backed by Postgres, deployed in Docker containers through a CI/CD pipeline.
+  \item Drove a substantial performance gain on the data-heaviest parts of the system --- slowest views moved from \textbf{minutes to sub-second}, standard views from seconds to a few hundred milliseconds --- through query optimization and right-sized deployment topology.
+  \item Designed the platform's configurability model so most new customer needs resolve through configuration rather than code changes.
+  \item Shipped offline-first functionality across the user-facing application, with a sync model that minimizes conflicts.
+  \item Owned the data migration between legacy and successor systems across incompatible schemas.
+  \item Coordinated a team of two developers through the rebuild while leading from the backend.
+\end{itemize}
+
+\vspace{4pt}
+
+\role{Freelance Full-Stack Developer}{2023 -- 2025}
+
+\begin{itemize}
+  \item \textbf{Edmond Serenity} (\href{https://edmondserenity.com}{edmondserenity.com}) --- Resident management system for a US nursing home: patient records, medication schedules, daily care logs. Co-built with one collaborator. Live since Oct 2025.
+  \item \textbf{Murunga Mangich Advocates} (\href{https://murungamangichadvs.co.ke}{murungamangichadvs.co.ke}) --- Document management system for a Kenyan law firm. Built solo. Live since Feb 2026.
+  \item Earlier work (2023--2024): REST APIs, bots, internal tools, and business sites for Kenyan SMBs.
+\end{itemize}
+
+% --- Selected Project ---
+\section{Selected Project}
+
+\role{Aktaba --- Personal knowledge-management platform}{\href{https://aktaba.com}{aktaba.com}}
+\rolecontext{Solo build \, · \, Live since early 2026 \, · \, 8 months idea to launch}
+
+A polymath's notebook: ingest highlights from books, slice them into notes, tag them across domains, attach them to projects, reason through ideas on linked canvases. Designed, built, and operated end-to-end.
+
+\begin{itemize}
+  \item \textbf{Backend:} FastAPI (Python) serving a REST API to a SvelteKit frontend. Stateless services, JWT auth, S3-backed document storage.
+  \item \textbf{Data:} Postgres for relational records; Neo4j for the typed, weighted link graph between notes inside matters. Write-time fan-out keeps the two stores consistent.
+  \item \textbf{Deployment:} AWS-hosted with regular backups and streaming replication. Approximately 600ms typical page latency from East Africa.
+  \item In daily active use: 2,500+ notes across 120 tags, 50 projects, 90+ highlights, 20 documents.
+\end{itemize}
+
+% --- Stack ---
+\section{Stack}
+
+\noindent\textbf{Languages:} Python \, · \, TypeScript \, · \, SQL \, · \, Bash\\[1pt]
+\textbf{Backend:} FastAPI \, · \, Django \, · \, REST \, · \, async patterns \, · \, service decomposition \, · \, query optimization\\[1pt]
+\textbf{Data:} Postgres \, · \, Neo4j \, · \, Redis \, · \, relational + graph modeling \, · \, migrations \, · \, streaming replication\\[1pt]
+\textbf{Frontend:} SvelteKit \, · \, React \, · \, PWA / offline-first\\[1pt]
+\textbf{Cloud \& Infra:} AWS \, · \, S3 \, · \, Docker \, · \, CI/CD (GitHub Actions) \, · \, Linux\\[1pt]
+\textbf{Strengths:} distributed-system design \, · \, microservices decomposition \& orchestration trade-offs \, · \, database modeling \, · \, architectural decision-making \, · \, technical writing \, · \, cross-team collaboration
+
+% --- Education ---
+\section{Education}
+
+\role{Bachelor of Architectural Studies}{Technical University of Kenya, 2023}
+Masterplanning, structural reasoning, and design under constraint --- disciplines I now apply to software systems.
+
+\vspace{2pt}
+\noindent\textbf{Self-directed:} worked through standard texts on networking, algorithms, and databases. \textit{Software Architecture: The Hard Parts} anchors my understanding of microservices decomposition, distributed-system trade-offs, and orchestration patterns. Bootcamp 2023.
+
+% --- Languages ---
+\section{Languages}
+
+\noindent English \, · \, Kiswahili
+
+\vspace{6pt}
+\begin{center}
+  {\small\color{muted}\itshape References available on request.}
+\end{center}
+
+\end{document}
