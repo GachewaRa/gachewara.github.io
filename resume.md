@@ -1,7 +1,7 @@
 # Adrian Gachewa
 **Full-stack Developer · Backend-leaning**
 
-Nairobi, Kenya · gachewaadrian@gmail.com · +254 717 990 239
+Nairobi, Kenya · gachewaadrian@gmail.com · +254 717 990 230
 github.com/GachewaRa · gachewara.github.io
 
 ---

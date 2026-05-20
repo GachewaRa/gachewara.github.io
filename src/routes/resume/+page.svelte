@@ -18,7 +18,7 @@
       <div class="resume-contact">
         <p>Nairobi, Kenya</p>
         <p><a href="mailto:gachewaadrian@gmail.com">gachewaadrian@gmail.com</a></p>
-        <p>+254 717 990 239</p>
+        <p>+254 717 990 230</p>
         <p>
           <a href="https://github.com/GachewaRa" target="_blank" rel="noopener">github.com/GachewaRa</a>
         </p>
